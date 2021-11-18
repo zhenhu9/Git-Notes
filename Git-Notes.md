@@ -1,3 +1,31 @@
+# Git Notes
+
+------
+
+## Table of Contents
+
+1. [Git](#Git)
+2. [The-Underlying-Logic-of-Git](#The-Underlying-Logic-of-Git)
+3. [Git-Configuration](#Git-Configuration)
+4. [Git-Help](#Git-Help)
+5. [The-Basic-Concept-of-Git](#The-Basic-Concept-of-Git)
+6. [The-Process-of-Generating-a-Snapshot](#The-Process-of-Generating-a-Snapshot)
+7. [Git-Basic-Snapshot-Commands](#Git-Basic-Snapshot-Commands)
+8. [Tagging](#Tagging)
+9. [Branch](#Branch)
+10. [Integrate-Branches](#Integrate-Branches)
+11. [Working-with-Remote](#Working-with-Remote)
+12. [Revision-Selection](#Revision-Selection)
+13. [Stashing-and-Cleaning](#Stashing-and-Cleaning)
+14. [Rewriting-History](#Rewriting-History)
+15. [Reset-Demystified](#Reset-Demystified)
+16. [Github](#Github)
+17. [Installing-Git](#Installing-Git)
+18. [Ignoring-Files](#Ignoring-Files)
+19. [Viewing-the-Commit-History](#Viewing-the-Commit-History)
+
+------
+
 # Git
 
 Version control is a system that records changes to a file or set of files over
