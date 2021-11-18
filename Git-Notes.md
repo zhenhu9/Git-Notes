@@ -1029,9 +1029,9 @@ Notifications.
 
 Branch protection:
 ```
-Any Repo Settings --> Branches
-Branch name pattern:  Just enter the branch you wanna protect. (a very simple
-way)
+Any Repo Settings --> Branches --> Branch name pattern:
+The simplest way is just to enter the branch you want to protect.
+
 Rules applied to everyone including administrators:
 Don't allow force pushes and deletions.
 ```
@@ -1049,11 +1049,11 @@ Here’s how it generally works:
 7. The project owner merges or closes the Pull Request.
 8. Sync the updated master back to your fork.
 
-You can clone the forked project to you computer and then push your changes.
-The Pull Request is like a platform for communication. After discussing, the
-project owner can choose to merge or rebase your commit. This step he also can
-do on his local repo has the same result, which the Pull Request will be
-completed. Finally you can sync them.
+You can clone the forked project to you computer and then push your changes of
+topic.  The Pull Request is like a platform for communication. After
+discussing, the project owner can choose to merge or rebase your commit. This
+step he also can do on his local repo has the same result, which the Pull
+Request will be completed. Finally you can sync the fork branch.
 
 ------
 
