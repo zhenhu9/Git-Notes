@@ -1059,7 +1059,7 @@ Notifications.
 Branch protection:
 ```
 Any Repo Settings --> Branches --> Branch name pattern:
-The simplest way is just to enter the branch you want to protect.
+The simplest way is just to enter the branch name you want to protect.
 
 Rules applied to everyone including administrators:
 Don't allow force pushes and deletions.
@@ -1088,7 +1088,9 @@ Request will be completed. Finally you can sync the fork branch.
 
 ## Git Underlying Tools
 
-Basically, Git stores its data as various types of objects. There are a lot of this type of tools in Git. Sometimes we wanna view the contents of the previous commits. There are two tools which can do this kind of thing.
+Basically, Git stores its data as various types of objects. There are a lot of
+this type of tools in Git. Sometimes we want to view the contents of the
+previous commits. There are two tools which can do this kind of thing.
 
 ```
 git
