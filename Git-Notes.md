@@ -19,10 +19,11 @@
 13. [Stashing and Cleaning](#Stashing-and-Cleaning)
 14. [Rewriting History](#Rewriting-History)
 15. [Reset Demystified](#Reset-Demystified)
-16. [Github](#Github)
-17. [Installing Git](#Installing-Git)
-18. [Ignoring Files](#Ignoring-Files)
-19. [Viewing the Commit History](#Viewing-the-Commit-History)
+16. [Git Underlying Tools](#Git-Underlying-Tools)
+17. [Github](#Github)
+18. [Installing Git](#Installing-Git)
+19. [Ignoring Files](#Ignoring-Files)
+20. [Viewing the Commit History](#Viewing-the-Commit-History)
 
 ------
 
@@ -1082,6 +1083,82 @@ topic.  The Pull Request is like a platform for communication. After
 discussing, the project owner can choose to merge or rebase your commit. This
 step he also can do on his local repo has the same result, which the Pull
 Request will be completed. Finally you can sync the fork branch.
+
+------
+
+## Git Underlying Tools
+
+Basically, Git stores its data as various types of objects. There are a lot of this type of tools in Git. Sometimes we wanna view the contents of the previous commits. There are two tools which can do this kind of thing.
+
+```
+git
+
+/* Provide content or type and size information for repository objects.
+cat-file
+         -t <object>	/* Show the object type identified by <object>.
+         -s <object>	/* Show the object size identified by <object>.
+         -p <object>	/* Print the contents of <object> based on its type.
+         <type> <object>	/* Same as above.
+
+ls-tree <object>	/* List the contents of a tree object.
+```
+
+An example to understand how to explore objects.
+
+```
+$ mkdir doc-project
+$ cd doc-project
+$ git init
+
+$ echo 'hello world' > README.md
+$ git add .
+$ git commit -m "initial commit"
+
+$ echo 'Hello World!' > README.md
+$ git commit -a -m "format words"
+
+$ git logg
+* 9357c3c (HEAD -> master) format words
+* c726af5 initial commit
+
+$ git cat-file -t 9357c3c
+commit
+
+$ git cat-file commit 9357c3c
+tree ad123a385f6c7d11ca711427e575d1530239caad
+parent c726af540223cf2f4433ba2849a2a7c3d8c530a3
+author JohnSnow <JohnSnow@outlook.com> 1637380522 -0500
+committer JohnSnow <JohnSnow@outlook.com> 1637380522 -0500
+
+format words
+
+$ git ls-tree ad123
+100644 blob 980a0d5f19a64b4b30a87d4206aade58726b60e3	README.md
+
+$ git cat-file -t 980a0
+blob
+
+$ git cat-file blob 980a0
+Hello World!
+
+/* All of objects are stored under their SHA-1 names inside the Git directory:
+$ find .git/objects/
+.git/objects/
+.git/objects/pack
+.git/objects/info
+.git/objects/9d
+.git/objects/9d/736b0af62e2c337764475d7fb8afe227924fc4
+.git/objects/bd
+.git/objects/bd/15470645f1beb99b12a4bcf08b19b80753d6f9
+.git/objects/c7
+.git/objects/c7/26af540223cf2f4433ba2849a2a7c3d8c530a3
+.git/objects/98
+.git/objects/98/0a0d5f19a64b4b30a87d4206aade58726b60e3
+.git/objects/ad
+.git/objects/ad/123a385f6c7d11ca711427e575d1530239caad
+.git/objects/93
+.git/objects/93/57c3cc1a8bc67c56f6f7b1ab497cba1c15168f
+```
 
 ------
 
