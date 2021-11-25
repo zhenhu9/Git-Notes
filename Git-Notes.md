@@ -1079,10 +1079,10 @@ Here’s how it generally works:
 8. Sync the updated master back to your fork.
 
 You can clone the forked project to you computer and then push your changes of
-topic.  The Pull Request is like a platform for communication. After
-discussing, the project owner can choose to merge or rebase your commit. This
-step he also can do on his local repo has the same result, which the Pull
-Request will be completed. Finally you can sync the fork branch.
+topic. The Pull Request is like a platform for communication. After discussing,
+the project owner can choose to merge or rebase your commit. This step he also
+can do on his local repo and then push to update. This has the same result,
+which the Pull Request will be completed. Finally you can sync the fork branch.
 
 ------
 
