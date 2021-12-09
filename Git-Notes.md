@@ -1,8 +1,10 @@
 # Git Notes
 
-https://git-scm.com/
-https://git-scm.com/book/en/v2
-https://github.com/progit/progit2
+Git Official Website: https://git-scm.com/
+
+Git Pro Book: https://git-scm.com/book/en/v2
+
+Git Pro Book on Github: https://github.com/progit/progit2
 
 ------
 
