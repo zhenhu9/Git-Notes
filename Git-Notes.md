@@ -38,20 +38,22 @@ Git Pro Book on Github: https://github.com/progit/progit2
 Version control is a system that records changes to a file or set of files over
 time so that you can recall specific versions later.
 
-There are three type of Version control system, Local Version Control System,
-Centralized Version Control System, Distributed Version Control system.
+There are three types of Version control systems: Local Version Control System
+(VCS), Centralized Version Control System (CVCS), Distributed Version Control
+ system (DVCS).
 
 Git is a distributed version control system. Every server and client each fully
 mirror the repository, including its full history. Thus, if any server dies, it
-can be restored from any of the client repositories or clones.
+can be restored from any of the client repositories or clones. Every clone is
+ really a full bacKup of all the data.
 
 ------
 
 ## The Underlying Logic of Git
 
 Git stores everything in its database not by file name but by the SHA-1 hash
-value of its contents. A 40-character string composed of hexadecimal characters
-(0–9 and a–f) looks something like below:
+value of files' contents or directory structure. A 40-character string composed
+ of hexadecimal characters (0–9 and a–f) looks something like below:
 
 24b9da6552252987aa493b52f8696cd6d3b00373
 
