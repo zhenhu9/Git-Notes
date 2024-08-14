@@ -68,20 +68,20 @@ anything that is not undoable or to make it erase data in any way.
 
 ## Git Configuration
 
-There are three Git configuration files:
+There are three levels of Git configuration files:
 
-- System confige file, `/etc/gitconfig`, apllied to every user on the system.
+- The system config file, `/etc/gitconfig`, apllied to every user on the system.
 
-- Global confige file, `~/.gitconfig` or `~/.config/git/config`, specific to
+- The global config file, `~/.gitconfig` or `~/.config/git/config`, specific to
   the user.
 
-- Repository configure file, `.git/config`, in the Git directory of whatever
-  repository you're currently using, specific to that single repository.
+- The repository configure file, `.git/config`, in the Git directory of whatever
+  repository you're currently working, specific to that single repository.
 
 Each level overrides values in the previous level.
 
-On defferent systems, the configure files may located in different places. You
-can view all of your settings and where they are coming from using:
+On defferent systems, the configuration files may located in different places.
+ You can view all of your settings and where they are coming from using:
 
     $ git config --list --show-origin
 
@@ -90,11 +90,11 @@ can view all of your settings and where they are coming from using:
 git config [--level] name value
 
 ```
---local, --system, --global	/* Three level configurations.
+--local, --system, --global	/* Three levels of configurations.
 
--l, --list		/* List all.
---add name value	/* Add a new variable.
---get name		/* Get value.
+-l, --list		/* List all configuration settings.
+--add name value	/* Add a new configuration option.
+--get name		/* Get the specified configuration value.
 --default <value>	/* With --get, use default value when missing entry.
 
 --unset name		/* Remove a variable.
@@ -140,7 +140,7 @@ core.quotePath		/* Whether quoting "unusual" characters in pathnames.
 /* Set git command alias
 alias.[short-command-name] "a-long-command-and-options"
 
-init.defaultBranch main		/* Setting the default branch name.
+init.defaultBranch main		/* Setting main as the default branch name.
 
 pull.rebase		/* The default behavior of git pull command.
             true	/* Rebase when pulling.
