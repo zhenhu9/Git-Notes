@@ -94,15 +94,20 @@ git config [--level] name value
 
 -l, --list		/* List all configuration settings.
 --add name value	/* Add a new configuration option.
---get name		/* Get the specified configuration value.
+--get name		/* Get the specified config value.
 --default <value>	/* With --get, use default value when missing entry.
 
+/* Show value of the given variable and where they are coming from. Combining
+ with --list, all of variables found would be shown.
+--show-origin name
+
 --unset name		/* Remove a variable.
---remove-section name	/* Remove a section.
+
+--remove-section name	/* Remove the given section in the config file.
 
 -e | --edit		/* Edit the configuration file.
 
-/* Set global configurations:
+/* Configuration variables:
 
 user.name "Your name"		/* Your identity.
 user.email mail@example.com	/* Your email.
@@ -159,7 +164,10 @@ in setting that value:
 
 ```
 $ git config --show-origin rerere.autoUpdate
-file:/home/johndoe/.gitconfig	false
+file:/home/username/.gitconfig	false
+
+$ git config --show-origin user.name
+file:/home/username/.gitconfig username
 ```
 
 A configuring example, the first thing you should do after installing Git.
