@@ -308,16 +308,16 @@ clone <remote-repo> [dir]
 **2. Basic Operations of Four Status and Three Areas**
 
 ```
-add			/* Add file contents to the index (staging areas).
+adD		/* Add file contents to the index (staging area).
 
 commit			/* Record changes to the repository.
        -v, --verbose	/* Show unified diff in commit message template.
        -m <msg>, --message=<msg>	/* Use <msg> as the commit message.
        -a, --all	/* Stage all files and commit.
 
-mv file_from file_to	/* Move or rename a file, a directory, or a symlink.
+mv file_from file_to	/* Move or rename a file, directory or symlink.
 
-rm			/* Remove files form the working tree and the index.
+rm			/* Remove files from the working tree and the index.
    -r <directory>	/* Recursively remove a directory.
 ```
 
@@ -327,8 +327,8 @@ rm			/* Remove files form the working tree and the index.
 status			/* Show the working tree status.
        -s, --short	/* Give the output in the short-format.
 
-diff		/* Show changes between the last commit and the working tree.
-     --staged	/* Show changes between the last commit and staged areas.
+diff		/* Show changes between the last commit and working tree.
+     --staged	/* Show changes between the last commit and staged area.
      --cached		/* It is a synonym of --staged.
 ```
 
@@ -365,7 +365,7 @@ $ touch README.md			/* Create a new file.
 $ git add README.md			/* Stage the new file.
 $ git commit -m 'First commit'	/* Commit with a message `First commit`.
 
-$ git logg	/* View commit history. `logg` is a git alias.logg setting.
+$ git logg	/* View commit history. `logg` is a git alias.logg.
 * cee25cb (HEAD -> master) First commit
 
 $ echo 'This is a README file.' > README.md	/* Modify it.
@@ -373,11 +373,12 @@ $ git add README.md				/* Stage it.
 $ echo '2021-11-10' >> README.md		/* Modify the file staged.
 $ touch a b c					/* Create three files.
 
-$ git add .	/* Stage README.md, `.` means all files in the current dir.
-$ git status		/* Check out file status, and find 3 unwanted files.
+/* Stage all files, `.` means all untracted and unstaged files.
+$ git add .
+$ git status		/* Check file status, and find 3 unwanted files.
 
 $ git reset HEAD a b c				/* Unstage 3 files.
-$ git commit -m 'Second commit'			/* Commit it.
+$ git commit -m 'Second commit'			/* The second commit.
 
 $ git logg					/* View the log history.
 * 14c6f6f (HEAD -> master) Second commit
@@ -392,10 +393,10 @@ An example to understand simplifed files status.
 ```
 $ git status -s
 
-__________  The left-hand column indicates the status of staging area.
-| ________  The right-hand column indicates the status of the working tree.
+__________  The first column indicates the status of staging area.
+| ________  The second column indicates the status of the working tree.
 ||
- M README		/* Right M indicates modifed but unstaged files.
+ M README		/* Right M indicates files modifed but unstaged.
 MM Rakefile
 A  lib/git.rb		/* Left A indicates new and staged files.
 M  lib/simplegit.rb	/* Left M indicates modified and staged files.
