@@ -167,7 +167,7 @@ $ git config --show-origin rerere.autoUpdate
 file:/home/username/.gitconfig	false
 
 $ git config --show-origin user.name
-file:/home/username/.gitconfig username
+file:/home/username/.gitconfig user.name
 ```
 
 A configuring example, the first thing you should do after installing Git.
@@ -274,21 +274,21 @@ You will see four main status of files and three corresponding storage areas.
 **The relationship between file status, storage areas and snapshots**
 
 ```
-            Working Directory              Stageing Area     .git directory
+          Working Directory           Stageing Area    .git directory
 
-  |----------------------------------|--------------------|----------------|
+  |--------------------------------|-----------------|----------------|
 
-       Untracked          Modified           Staged            Snapshots
-       or Committed
+     Untracked         Modified         Staged            Snapshots
+     or Committed
 
-  |-Add new files------------------->|                    |      8932c   ^
-  |                  |-Stage files-->|                    |      52038   |
-  |-Edit files------>|               |                    |      79f22   |
-  |                  |-stage Fixes-->|                    |      ff692   |
-  |                  |               |-Commit files------>|      8b3c2   |
-                                                   A snapshot--> 32f74   |
-  |<---------------------------------Checkout the project-|
-  |-`.gitignore` files to avoid to track unwanted files-->|  Branch Master
+  |-Add new files----------------->|                 |      8932c     ^
+  |                |-Stage files-->|                 |      52038     |
+  |-Edit files---->|               |                 |      79f22     |
+  |                |-Stage Fixes-->|                 |      ff692     |
+  |                |               |-Commit files--->|      8b3c2     |
+                                              A snapshot--> 32f74     |
+  |<----------------------------Checkout the project-|
+  |-`.gitignore` to avoid to track unwanted files--->| Branch Master  |
 ```
 
 ------
@@ -301,7 +301,7 @@ You will see four main status of files and three corresponding storage areas.
 init	/* Create an empty git repository or reinitialize an existing one.
      --bare		/* Create a bare repository as a remote repo.
 
-/* Clone a remote repository with same or desired directory name.
+/* Clone a remote repository with the same or desired directory name.
 clone <remote-repo> [dir]
 ```
 
