@@ -180,7 +180,8 @@ $ git config --global core.editor your-favourite-editor
 $ git config --global core.quotePath false
 $ git config --global pull.rebase false
 
-$ git config --global alias.logg 'log --oneline --decorate --graph --all'
+$ git config --global alias.logg 'log --oneline --decorate --graph'
+$ git config --global alias.logall 'log --oneline --decorate --graph --all'
 ```
 
 ------
@@ -308,7 +309,7 @@ clone <remote-repo> [dir]
 **2. Basic Operations of Four Status and Three Areas**
 
 ```
-adD		/* Add file contents to the index (staging area).
+add		/* Add file contents to the index (staging area).
 
 commit			/* Record changes to the repository.
        -v, --verbose	/* Show unified diff in commit message template.
@@ -385,8 +386,8 @@ $ git logg					/* View the log history.
 * cee25cb First commit
 ```
 
-**Note**: You should always check out file status as possible before your next
-operation. And should figure out the meaning of file status report information.
+**Note**: You should always examine file status as possible before your next
+operation. And get familiar with the meaning of file status report information.
 
 An example to understand simplifed files status.
 
@@ -511,7 +512,7 @@ An example to understand how to create, delete or switch between branches.
 
 ```
 $ mkdir new-project
-$ cd new-prject
+$ cd new-project
 
 $ git init			/* Initialize the new-project directory.
 $ touch a b c d
@@ -533,20 +534,21 @@ $ git logg			/* In commit history, there are 3 branches.
 * 289a3e2 (b01) b
 * 16c9ce9 a
 
-/* Switch to the branch b01 and checkout the data it owns.
-$ git checkout b01
-$ git logg
+$ git checkout b01		/* Switch to the branch b01.
+$ git logg			/* Checkout the data it owns.
 * 289a3e2 (HEAD -> b01) b
 * 16c9ce9 a
 
-$ touch e f g			/* Create three files.
-...				/* Every file is a commit, and so on.
+$ touch e f g			/* Create three files on branch b01.
+$ git add e
+$ git commit -m 'e'		/* Commit a file each time until file g.
+...				/* And so on.
 
 $ git checkout b02		/* Switch to the branch b02.
 $ touch h i j			/* Do something like on the branch b01.
 ...
 
-$ git logg			/* Finally we get something like this.
+$ git logall			/* Finally we get something like this.
 * 11ad5bf (HEAD -> b02) j
 * bf6d5d8 i
 * 28dc4dc h
@@ -560,6 +562,9 @@ $ git logg			/* Finally we get something like this.
 |/
 * 289a3e2 b
 * 16c9ce9 a
+
+$ ls				/* On branch b02, we can only see those files.
+a b c h i j
 
 $ git checkout master
 $ git branch bug		/* Create a new branch `bug` bashed on master.
