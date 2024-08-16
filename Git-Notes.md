@@ -766,14 +766,15 @@ abstract concept of remote repoes, before introducing how to operate it.
    directory.
 
 2. Remote repoes don't record how local and remote branches connected or
-   tracked each other.
+   tracked each other. The correspondence between the local branch and
+   the remote branch is only recorded in the local repository.
 
 3. After cloning a remote repo, all of data and remote branches will be
    download or fetched, but only the local branch master or the branch with the
    initial commit will be created and track this remote branch. you can create
    any local branch based on any remote branch with same or different names.
    This procedure means the local branch has tracked the remote branche or made
-   synchronization between them, as they marke the same commit checksum. Every
+   synchronization between them, as they mark the same commit checksum. Every
    branch can be done like this.
 
 4. Otherwise, let's say you have a local repo with some commits and a new empty
@@ -792,8 +793,7 @@ abstract concept of remote repoes, before introducing how to operate it.
    forget that you can always create multiple branches which base on one branch
    or the same commit. This means you have multiple backups of a branch and you
    can always do testing operations on them. After having been fully tested,
-   you can merge tested branch into the important branch, and it will always be
-   a fast-forward merge.
+   you can merge tested branch into the important branch.
 
 **Note**: Git remote repository third party hosted options,
 https://git.wiki.kernel.org/index.php/GitHosting
