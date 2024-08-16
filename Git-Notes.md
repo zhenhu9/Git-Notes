@@ -582,6 +582,10 @@ $ git branch
 * master
 ```
 
+**Note**: If some mistakes have made, you can resotre or rewind a commit step
+ by using `git restore ...` or `git reset --hard HEAD~`. Or just redo all of
+ works for practices.
+
 ------
 
 ## Integrate Branches
@@ -626,7 +630,7 @@ merge <branch-name>
 An example to understand how to merge.
 
 ```
-/* We use the new-project with three branches that has been created before.
+/* We'll utilize the new-project with three branches that's been created before.
 
          e---f---g <--- b01            e---f---g <--- b01
         /                             /         \
@@ -634,7 +638,7 @@ An example to understand how to merge.
             \                             \
              h---i---j  b02                h---i---j  b02
 
-$ git checkout master
+$ git checkout master		/* Switch to the master branch.
 $ ls
 a b c d
 
@@ -666,8 +670,8 @@ git
 
 rebase <to-branch>		/* Reapply commits to <to-branch>.
 
-       /* Reapply <break-branch> based on <base-on-branch> to <to-branch>.
-       --onto <to-branch> <base-on-branch> <break-branch>
+       /* Reapply <picked-branch> based on <based-on-branch> to <to-branch>.
+       --onto <to-branch> <based-on-branch> <picked-branch>
 
        /* After staging all resolved conflics, complete the rebasing.
        --continue
@@ -694,7 +698,7 @@ Applying: h
 Applying: i
 Applying: j
 
-$ git logg
+$ git logall
 * 78641d4 (HEAD -> b02) j	/* Checksum has been changed.
 * d841fcc i
 * 7650b4f h
@@ -714,7 +718,7 @@ $ git merge b02
 Fast-forward
 ...
 
-$ git logg
+$ git logall
 * 78641d4 (HEAD -> master, b02) j
 * d841fcc i
 * 7650b4f h
@@ -748,7 +752,7 @@ git rebase --onto new-topic~5 new-topic~3 new-topic
 
    e---f---g---h---i---j new-topic     e---h'---i'---j' new-topic
 
-/* Remove the part of new-topic which you don't want.
+/* Remove the part of new-topic which you don't want (~=i, ~3=g, ~5=e).
 ```
 
 ------
