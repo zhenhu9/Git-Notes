@@ -766,16 +766,16 @@ abstract concept of remote repoes, before introducing how to operate it.
    directory.
 
 2. Remote repoes don't record how local and remote branches connected or
-   tracked each other. The correspondence between the local branch and
-   the remote branch is only recorded in the local repository.
+   tracked each other. The correspondence between local branches and
+   remote branches is only recorded in the local repository.
 
 3. After cloning a remote repo, all of data and remote branches will be
    download or fetched, but only the local branch master or the branch with the
-   initial commit will be created and track this remote branch. you can create
+   initial commit will be created and track the remote branch. you can create
    any local branch based on any remote branch with same or different names.
    This procedure means the local branch has tracked the remote branche or made
    synchronization between them, as they mark the same commit checksum. Every
-   branch can be done like this.
+   branch can be done like this, such as `git branch b01 origin/b01`.
 
 4. Otherwise, let's say you have a local repo with some commits and a new empty
    remote repo. After adding the remote repo locally, you should use `git push
@@ -801,11 +801,17 @@ https://git.wiki.kernel.org/index.php/GitHosting
 ```
   Local                                                           Remote
 
+  Repo      git clone <url> [<directory>]                         Repo
+  Branches  git branch <localbranch> <shortname>/<reomtebranch>   Branches
+  master    git fetch <shortname> [<branch>] [--all]              master
+  b01       git push <shortname> [--all]                          b01
+  b02       git pull <shortname>                                  b02
+
   Repo      git remote add <shortname> <url>                      Repo
   Branches  git push -u <shortname> <localbranch>:<remotebranch>  Branches
-  master    git push <shortname> <branch>                         master
-  b01       git fetch <shortname> <branch>                        b01
-  b02       git branch <localbranch> <shortname>/<remotebranch>   b02
+  master    git push <shortname> <localbranch>:<remotebranch>     master
+  b01       git push <shortname> [--all]                          b01
+  b02       git pull <shortname>                                  b02
 ```
 
 **Git Commands to interact with remote**
@@ -850,12 +856,12 @@ push
 pull <remote> <branch>
 ```
 
-An example to understand how to work with remote repoes.
+an examples to understand how to work with remote repoes.
 
 ```
 /* Continue the new-project that has been created before.
 
-/* You must create a remote repo on a hosting server like github, Azure
+/* You may try to create a remote repo on a hosting server like github, Azure
 Dev-Ops, etc.
 
 /* Add the remote repo with it's shortname `origin`.
@@ -880,20 +886,29 @@ $ git branch --all		/* Show all of local and remote branches.
   remotes/origin/b01
   remotes/origin/b02
   remotes/origin/master
+```
 
+Another example.
 
+```
 /* Now we try a remote repo at local disk.
 
-$ cd ..				/* Get out of the new-project directory.
+$ cd ..			/* Get out of the local new-project directory.
 
 $ mkdir public-new-project
 $ cd public-new-project
 $ git init --bare	/* Initialize this directory as a bare remote repo.
 
-$ cd ../new-project		/* Go back to your new-project directory.
+$ cd new-project	/* Go back to your local new-project directory.
 
 /* Add the remote repo which has been created in your local disk.
 $  git remote add public-new-project /path/public-new-project
+
+$ git remote -vv	/* Check the information of remote repoes.
+origin	git@github.com:username/new-project.git (fetch)
+origin	git@github.com:username/new-project.git (push)
+public-new-project	/path/public-new-project/ (fetch)
+public-new-project	/path/public-new-project/ (push)
 
 /* Tracking every branch separately.
 
@@ -901,11 +916,11 @@ $ git push -u public-new-project master:main
  * [new branch]      master -> main
 Branch 'master' set up to track remote branch 'main' from 'public-new-project'.
 
-$ git push -u public-new-project b01:bugfix
+$ git push public-new-project b01:bugfix
  * [new branch]      b01 -> bugfix
 Branch 'b01' set up to track remote branch 'bugfix' from 'public-new-project'.
 
-$ git push -u public-new-project b02:new-feature
+$ git push public-new-project b02:new-feature
  * [new branch]      b02 -> new-feature
 Branch 'b02' set up to track remote branch 'new-feature' from
 'public-new-project'.
@@ -924,8 +939,11 @@ $ git branch --all
 /* Delete the remote branch bugfix of the public-new-project repo.
 $ git push public-new-project --delete bugfix
  - [deleted]         bugfix
+```
 
+An example to display how to tract remote branch locally.
 
+```
 /* Now we delete the new-project directory, as there is a full backup on the
 remote.
 
