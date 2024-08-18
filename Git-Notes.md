@@ -976,16 +976,21 @@ Switched to a new branch 'b01'
 
 ```
          o---p---q  next               Type of References:
-        /          ^^2
+        /          ^^^2
        /   f---g---h  topic            A single Revision: git show 1c361
       /   /         \                  A branches: git show topic
  a---b---c---d---e---i---j---k HEAD    Reflog Shortnames: git show HEAD@{5}
      ~6  ~5  ~4 ^^^  ^^  ^
      1c361                   master
 
-/* HEAD^ means the first parent. But HEAD^^2 means parent>parent>parent in 2nd,
-the branch which merge in.
-Ancestry: git show HEAD^^2
+/* HEAD is the pointer to the current branch reference, which usually is on
+the top of that branch. And the previous one would be regarded as HEAD^ or
+HEAD~ and so on such as HEAD^^ or HEAD~2.
+
+/* HEAD^^^ means the third previous one as HEAD~3, But HEAD^^^2 means the
+ third previous one in the branch which had been merge.
+Ancestry: git show HEAD^^^2
+
 /* HEAD~ == HEAD^; HEAD~2 == HEAD^^, but only in the branch which merge into.
           git show HEAD~5
 
