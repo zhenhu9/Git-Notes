@@ -978,7 +978,7 @@ Switched to a new branch 'b01'
          o---p---q  next               Type of References:
         /          ^^^2
        /   f---g---h  topic            A single Revision: git show 1c361
-      /   /         \                  A branches: git show topic
+      /   /         \                  A branch: git show topic
  a---b---c---d---e---i---j---k HEAD    Reflog Shortnames: git show HEAD@{5}
      ~6  ~5  ~4 ^^^  ^^  ^
      1c361                   master
