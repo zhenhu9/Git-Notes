@@ -772,19 +772,19 @@ abstract concept of remote repoes, before introducing how to operate it.
 3. After cloning a remote repo, all of data and remote branches will be
    download or fetched, but only the local branch master or the branch with the
    initial commit will be created and track the remote branch. you can create
-   any local branch based on any remote branch with same or different names.
-   This procedure means the local branch has tracked the remote branche or made
-   synchronization between them, as they mark the same commit checksum. Every
-   branch can be done like this, such as `git branch b01 origin/b01`.
+   any local branch based on any remote branch with same or different names,
+   such as `git branch b01 origin/b01`. This procedure means the local branch
+   has tracked the remote branche or made synchronization between them, as they
+   mark the same commit checksum. And every other branch can be done like this.
 
-4. Otherwise, let's say you have a local repo with some commits and a new empty
+4. Otherwise, let's say you have a local repo with some branches and a new empty
    remote repo. After adding the remote repo locally, you should use `git push
    --set-upstream <remote-repo> <local-branch>:<remote-branch>` command to
-   track remote branch and the data of this branch will be pushed to it at the
-   same time. Generally, after tracking the branch master, and then `git push
+   track remote branch and the data will be pushed to the remote at the same
+   time. Generally, after tracking the branch master, and then `git push
    <remote-repo> --all` command will make all local branches track remote
    branches and their data will be synchronized. Alternatively, just using
-   `push --set-upstream` to track every branch.
+   `push --set-upstream ...` to track each other branch separately.
 
 5. When collaborating with others, things seem to become tricky. Before pushing
    to remote, you must always fetch commits of others first. And then you can
