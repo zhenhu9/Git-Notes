@@ -1097,6 +1097,66 @@ git reset --soft [commit-hash] -- file...
 git reflog     /* Show all commands history with the reference hash.
 ```
 
+An example to show reference history, and  to restore to history point.
+
+```
+/* Let's redo the new-project.
+$ git logall
+*   a363810 (HEAD -> master) k
+|\
+| * 4fcdd7a (b01) g
+| * ee1574c f
+| * 67a2b91 e
+* | 1781972 d
+| | * e540808 (b02) j
+| | * d2c80ef i
+| | * 3199b4c h
+| |/
+|/|
+* | a907329 c
+|/
+* 2b7b612 b
+* b61d276 a
+
+$ git reflog	/* Show all of your manipulations.
+a363810 (HEAD -> master) HEAD@{0}: merge b01: Merge made by the 'recursive' strategy.
+1781972 HEAD@{1}: checkout: moving from b02 to master
+e540808 (HEAD -> b02) HEAD@{0}: commit: j
+d2c80ef HEAD@{1}: commit: i
+3199b4c HEAD@{2}: commit: h
+a907329 HEAD@{3}: checkout: moving from b01 to b02
+4fcdd7a (b01) HEAD@{4}: commit: g
+ee1574c HEAD@{5}: commit: f
+67a2b91 HEAD@{6}: commit: e
+2b7b612 HEAD@{7}: checkout: moving from master to b01
+1781972 (master) HEAD@{8}: commit: d
+a907329 HEAD@{9}: commit: c
+2b7b612 HEAD@{10}: commit: b
+b61d276 HEAD@{11}: commit (initial): a
+
+/* Let's say we want to reverse a commit before merging.
+$ git reset --hard HEAD~	/* Reverse one commit.
+HEAD is now at 1781972 d
+
+/* And then let's say we still want that merge.
+$ git reset --hard a363810	/* Restore back to she specified point.
+*   a363810 (HEAD -> master) k
+|\
+| * 4fcdd7a (b01) g
+| * ee1574c f
+| * 67a2b91 e
+* | 1781972 d
+| | * e540808 (b02) j
+| | * d2c80ef i
+| | * 3199b4c h
+| |/
+|/|
+* | a907329 c
+|/
+* 2b7b612 b
+* b61d276 a
+```
+
 ------
 
 ## Github
