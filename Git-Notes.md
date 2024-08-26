@@ -784,7 +784,7 @@ abstract concept of remote repoes, before introducing how to operate it.
    time. Generally, after tracking the branch master, and then `git push
    <remote-repo> --all` command will make all local branches track remote
    branches and their data will be synchronized. Alternatively, just using
-   `push --set-upstream ...` to track each other branch separately.
+   `push --set-upstream ...` to track other each branch separately.
 
 5. When collaborating with others, things seem to become tricky. Before pushing
    to remote, you must always fetch commits of others first. And then you can
