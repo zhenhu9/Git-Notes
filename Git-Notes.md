@@ -122,9 +122,11 @@ core.excludesfile	/* default is .gitignore file.
 
 color.ui		/* true, false, default is auto.
 
+core.eol		/* text=auto, or lf, crlf, native.
+
 core.autocrlf		/* Linux <LF>, Windows <CRLF>, MacOS <CR>
-              true	/* before commiting, coverting line endings.
-              input	/* No line endings converting.
+              true	/* before commiting, coverting line endings to CRLF.
+              input	/* Committing as input.
               false	/* No line endings converting.
 
 core.safecrlf		/* When end-of-line conversion is active,
@@ -139,8 +141,8 @@ core.whitespace
 		/* Default turn on blank-at-eol,blank-at-eof,space-beofre-tab.
 
 core.quotePath		/* Whether quoting "unusual" characters in pathnames.
-               true	/* Yes.
-               false	/* No. Display Chinese characters correctly.
+               true	/* Yes. eg. /t for TAB, \n for LF.
+               false	/* No. Display UTF-8 characters, such as Chinese.
 
 /* Set git command alias
 alias.[short-command-name] "a-long-command-and-options"
